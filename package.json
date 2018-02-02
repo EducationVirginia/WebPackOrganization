@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "webpack --watch --color",
     "start": "webpack-dev-server --color",
-    "build": "webpack"
+    "build": "webpack -p"
   },
   "keywords": [
     "webpack"
