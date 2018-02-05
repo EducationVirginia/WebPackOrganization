@@ -1,6 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500');
+@import "~bootstrap/scss/bootstrap";
 
 body {
 	background-color: #5AB6FF;
 	font-family: 'Montserrat', sans-serif;
+}
+h2 {
+	color: #fff;
+}
+.row {
+	border: 1px solid #122343;
+	padding: 40px;
+	background-color: red;
 }

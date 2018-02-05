@@ -11,6 +11,7 @@ module.exports = {
 		publicPath: ASSET_PATH
 	},
 	module: {
+
 		rules: [
 			{
 				test: /\.js$/,
@@ -34,27 +35,32 @@ module.exports = {
 				} 			
 			},
 			{
-				test: /\.css$/,
-				use: ExtractTextPlugin.extract({
-		        	fallback: "style-loader",
-		        	use: "css-loader"
-		        })
-			},
-			{
-				test: /\.scss$/,
+				test: /(\.css|\.scss)$/,
 				exclude: /node_modules/,
 				use: ExtractTextPlugin.extract({
+		        	fallback: "style-loader",
 		        	use: [
-		        	{
-		        		loader: "css-loader",
-		        		options: { 
-		        			import: false,
-		        			minimize: true
-		        		}
-		        	},
-		        	{
-		        		loader: "sass-loader"
-		        	}
+			        	{
+			        		loader: "css-loader",
+			        		options: { 
+			        			minimize: true,
+                                sourceMap: true
+			        		}
+			        	},
+						{
+						  loader: 'postcss-loader', // Run post css actions
+						  options: {
+						    plugins: function () { // post css plugins, can be exported to postcss.config.js
+						      return [
+						        require('precss'),
+						        require('autoprefixer')
+						      ];
+						    }
+						  }
+						},
+			        	{
+			        		loader: "sass-loader"
+			        	}
 		        	]
 
 		        })
@@ -64,16 +70,15 @@ module.exports = {
 	plugins: [ 
 	    new ExtractTextPlugin("./css/[name].css"),
 	    new BrowserSyncPlugin({
-	      host: 'localhost',
-	     files: [
-	        './src/style/*.css',
-	        './src/style/*.scss',
-	        './src/scripts/*.js',
-	        './dist/*.html',
-	        './dist/css/*.css'
-	      ],
-	      port: 9000,
-	      server: { baseDir: ['dist'] }
+			host: 'localhost',
+			files: [
+				'./**/*.html',
+				'../**/*.js',
+				'../**/*.scss',
+				'./**/*.css'			
+			],
+			port: 9000,
+			server: { baseDir: ['dist'] }
 	    })
 	]
 };

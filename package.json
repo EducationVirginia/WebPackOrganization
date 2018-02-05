@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "webpack --watch --color",
-    "start": "webpack-dev-server --color",
+    "start": "webpack-dev-server -p --progress --colors --watch",
     "build": "webpack -p"
   },
   "keywords": [
@@ -14,21 +14,29 @@
   "author": "@Virginia.Creativa",
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "^2.23.6",
-    "browser-sync-webpack-plugin": "^2.0.1",
-    "css-loader": "^0.28.9",
-    "extract-text-webpack-plugin": "^3.0.2",
-    "file-loader": "^1.1.6",
-    "node-sass": "^4.7.2",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.20.1",
-    "url-loader": "^0.6.2",
-    "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.1"
+    "bootstrap": "4.0.0-beta",
+    "browser-sync": "2.23.6",
+    "browser-sync-webpack-plugin": "2.0.1",
+    "css-loader": "0.28.9",
+    "exports-loader": "0.6.4",
+    "extract-text-webpack-plugin": "3.0.2",
+    "file-loader": "1.1.6",
+    "imports-loader": "0.7.1",
+    "node-sass": "4.7.2",
+    "postcss-loader": "2.1.0",
+    "precss": "3.1.0",
+    "resolve-url-loader": "2.2.1",
+    "sass-loader": "6.0.6",
+    "style-loader": "0.20.1",
+    "url-loader": "0.6.2",
+    "webpack": "3.10.0",
+    "webpack-dev-server": "2.11.1"
   },
   "dependencies": {
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-preset-env": "^1.6.1"
+    "babel-core": "6.26.0",
+    "babel-loader": "7.1.2",
+    "babel-preset-env": "1.6.1",
+    "bootstrap-loader": "2.2.0",
+    "jquery": "3.3.1"
   }
 }
