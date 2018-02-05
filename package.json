@@ -4,9 +4,8 @@
   "description": "Webpack demo v3",
   "main": "index.js",
   "scripts": {
-    "watch": "webpack --watch --color",
-    "start": "webpack-dev-server -p --progress --colors --watch",
-    "build": "webpack -p"
+    "start": "webpack -p --watch --colors",
+    "build": "webpack "
   },
   "keywords": [
     "webpack"
@@ -36,7 +35,6 @@
     "babel-core": "6.26.0",
     "babel-loader": "7.1.2",
     "babel-preset-env": "1.6.1",
-    "bootstrap-loader": "2.2.0",
     "jquery": "3.3.1"
   }
 }
