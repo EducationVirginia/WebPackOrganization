@@ -1,12 +1,13 @@
 const path = require('path');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ASSET_PATH = process.env.ASSET_PATH || '/';
 
 module.exports = {
 	entry: './src/index.js',
 	output: {
-		filename: 'bundle.js',
+		filename: 'app.bundle.js',
 		path: path.resolve(__dirname, 'dist'),
 		publicPath: ASSET_PATH
 	},
@@ -48,9 +49,9 @@ module.exports = {
 			        		}
 			        	},
 						{
-						  loader: 'postcss-loader', // Run post css actions
+						  loader: 'postcss-loader', 
 						  options: {
-						    plugins: function () { // post css plugins, can be exported to postcss.config.js
+						    plugins: function () { 
 						      return [
 						        require('precss'),
 						        require('autoprefixer')
@@ -68,7 +69,7 @@ module.exports = {
 		]
 	},
 	plugins: [ 
-	    new ExtractTextPlugin("./css/[name].css"),
+	    new ExtractTextPlugin("css/[name].css"),
 	    new BrowserSyncPlugin({
 			host: 'localhost',
 			files: [
@@ -79,6 +80,22 @@ module.exports = {
 			],
 			port: 9000,
 			server: { baseDir: ['dist'] }
-	    })
+	    }),
+	    new HtmlWebpackPlugin({  
+			filename: 'index.html',
+			template: 'src/assets/index.html',
+			title: 'Principal template',
+			minify: {
+				collapseWhitespace: true
+			}
+		}),
+		new HtmlWebpackPlugin({  
+			filename: 'test.html',
+			template: 'src/assets/test.html',
+			title: 'Test template',
+			minify: {
+				collapseWhitespace: true
+			}
+		})
 	]
 };

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack -p --watch --colors",
-    "build": "webpack "
+    "build": "webpack"
   },
   "keywords": [
     "webpack"
@@ -20,6 +20,7 @@
     "exports-loader": "0.6.4",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.6",
+    "html-webpack-plugin": "^2.30.1",
     "imports-loader": "0.7.1",
     "node-sass": "4.7.2",
     "postcss-loader": "2.1.0",
