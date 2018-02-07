@@ -16,6 +16,14 @@ module.exports = {
 		rules: [
 			{
 				test: /\.js$/,
+				exclude: /node_modules/,
+				loader: "eslint-loader",
+				options: {
+				  // eslint options (if necessary)
+				}
+			},
+			{
+				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
 				use: {
 					loader: 'babel-loader',
@@ -83,7 +91,7 @@ module.exports = {
 	    }),
 	    new HtmlWebpackPlugin({  
 			filename: 'index.html',
-			template: 'src/assets/index.html',
+			template: 'src/index.html',
 			title: 'Principal template',
 			minify: {
 				collapseWhitespace: true

@@ -1,4 +1,2 @@
-// ============ STYLE =============
-import  './style/main.scss';
-// ============ JS =============
+const StyleFile = require('./style/main.scss');
 console.log('test');
